@@ -1,9 +1,6 @@
 package steps;
 
-import io.cucumber.java.pt.Dado;
-import io.cucumber.java.pt.E;
-import io.cucumber.java.pt.Entao;
-import io.cucumber.java.pt.Quando;
+import io.cucumber.java.pt.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -31,10 +28,11 @@ public class CalculadoraDias {
         driver.findElement((By.name("calcula"))).click();
     }
 
-    @Entao("o sistema calculará o data atual e mais {int} dias")
-    public void oSistemaCalcularáODataAtualEMaisDias() {
+    @Então("o sistema calculará o data atual mais os dias adicionados")
+    public void oSistemaCalcularáODataAtualMaisOsDiasAdicionados() {
         String resultado;
-        resultado = driver.findElement(By.name("result1")).getText();
-        Assert.assertEquals(resultado, "22/Novembro/2023  (Qua)");
+        resultado = driver.findElement(By.name("result1")).getAttribute("value");
+        String esperado = "22/Novembro/2023  (Qua)";
+        Assert.assertEquals(resultado, esperado);
     }
 }

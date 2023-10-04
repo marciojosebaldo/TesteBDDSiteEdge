@@ -12,4 +12,4 @@
         Dado que o usuário acessou a tela de cálculo de datas do site "http://webcalc.com.br/DataHora/form/operacoes"
         E informou "50" dias no campo quantidade de dias
         Quando clicou no botão calcular
-        Entao o sistema calculará o data atual e mais 50 dias
+        Então o sistema calculará o data atual mais os dias adicionados
