@@ -6,8 +6,8 @@ import io.cucumber.java.pt.Entao;
 import io.cucumber.java.pt.Quando;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.Assert;
 
 public class CalculadoraDias {
 
@@ -28,14 +28,13 @@ public class CalculadoraDias {
 
     @Quando("clicou no botão calcular")
     public void clicouNoBotãoCalcular() {
+        driver.findElement((By.name("calcula"))).click();
     }
-
-    @Entao("o sistema calculará o valor atual de dias com mais {int} dias")
-    public void oSistemaCalcularáOValorAtualDeDiasComMaisDias() {
-    }
-
 
     @Entao("o sistema calculará o data atual e mais {int} dias")
-    public void oSistemaCalcularáODataAtualEMaisDias(int arg0) {
+    public void oSistemaCalcularáODataAtualEMaisDias() {
+        String resultado;
+        resultado = driver.findElement(By.name("result1")).getText();
+        Assert.assertEquals(resultado, "22/Novembro/2023  (Qua)");
     }
 }
